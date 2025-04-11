@@ -3,6 +3,7 @@
 const { comparePassword } = require('../helpers/bcrypt')
 const { signToken } = require('../helpers/jwt')
 const { User, University, Sequelize } = require('../models')
+const fetchRemoteData = require('../utils/fetchRemoteData')
 
 class ControllerUser {
     static async loginUser(req, res, next) {
@@ -77,6 +78,35 @@ class ControllerUser {
             res.status(200).json({
                 message: `Success delete ${dataUser.username}`,
             })
+        } catch (error) {
+            next(error)
+        }
+    }
+
+    static async getDataByName(req, res, next) {
+        try {
+            const { name } = req.params
+            const data = await fetchRemoteData()
+
+            const lines = data.DATA.trim().split('\n')
+            const headers = lines[0].split('|')
+
+            const parsedData = lines.slice(1).map((line) => {
+                const values = line.split('|')
+                return {
+                    [headers[0]]: values[0],
+                    [headers[1]]: values[1],
+                    [headers[2]]: values[2],
+                }
+            })
+
+            const filtered = parsedData.filter((item) =>
+                item.NAMA?.toLowerCase().includes(name.toLowerCase())
+            )
+
+            if (filtered.length === 0) throw { name: 'None' }
+
+            res.status(200).json({ data: filtered })
         } catch (error) {
             next(error)
         }
