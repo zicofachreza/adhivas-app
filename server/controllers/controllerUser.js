@@ -2,7 +2,7 @@
 
 const { comparePassword } = require('../helpers/bcrypt')
 const { signToken } = require('../helpers/jwt')
-const { User } = require('../models')
+const { User, University, Sequelize } = require('../models')
 
 class ControllerUser {
     static async loginUser(req, res, next) {
@@ -34,6 +34,20 @@ class ControllerUser {
         try {
             await User.create(req.body)
             res.status(201).json({ message: 'User created successfully' })
+        } catch (error) {
+            next(error)
+        }
+    }
+
+    static async showAllUsers(req, res, next) {
+        try {
+            const dataUsers = await User.findAll({
+                attributes: { exclude: ['password', 'createdAt', 'updatedAt'] },
+                include: [{ model: University, attributes: ['univName'] }],
+                order: [[Sequelize.col('nim'), 'ASC']],
+            })
+
+            res.status(200).json(dataUsers)
         } catch (error) {
             next(error)
         }
