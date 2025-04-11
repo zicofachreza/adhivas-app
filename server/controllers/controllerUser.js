@@ -29,6 +29,15 @@ class ControllerUser {
             next(error)
         }
     }
+
+    static async addUser(req, res, next) {
+        try {
+            await User.create(req.body)
+            res.status(201).json({ message: 'User created successfully' })
+        } catch (error) {
+            next(error)
+        }
+    }
 }
 
 module.exports = ControllerUser
