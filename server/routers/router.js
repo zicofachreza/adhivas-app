@@ -10,5 +10,6 @@ router.post('/login', ControllerUser.loginUser)
 
 router.use(authenticate)
 router.post('/add-user', authorizeAdminOnly, ControllerUser.addUser)
+router.get('/', ControllerUser.showAllUsers)
 
 module.exports = router
