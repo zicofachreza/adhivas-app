@@ -111,6 +111,35 @@ class ControllerUser {
             next(error)
         }
     }
+
+    static async getDataByNIM(req, res, next) {
+        try {
+            const { nim } = req.params
+            const data = await fetchRemoteData()
+
+            const lines = data.DATA.trim().split('\n')
+            const headers = lines[0].split('|')
+
+            const parsedData = lines.slice(1).map((line) => {
+                const values = line.split('|')
+                return {
+                    [headers[0]]: values[0],
+                    [headers[1]]: values[1],
+                    [headers[2]]: values[2],
+                }
+            })
+
+            const filtered = parsedData.filter(
+                (item) => String(item[headers[1]]) === nim
+            )
+
+            if (filtered.length === 0) throw { name: 'None' }
+
+            res.status(200).json({ data: filtered })
+        } catch (error) {
+            next(error)
+        }
+    }
 }
 
 module.exports = ControllerUser
