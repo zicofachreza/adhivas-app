@@ -15,5 +15,6 @@ router.put('/:userId', authorizeAdminOnly, ControllerUser.updateUserByPk)
 router.delete('/:userId', authorizeAdminOnly, ControllerUser.removeUserByPk)
 router.get('/name/:name', ControllerUser.getDataByName)
 router.get('/nim/:nim', ControllerUser.getDataByNIM)
+router.get('/ymd/:ymd', ControllerUser.getDataByYMD)
 
 module.exports = router
