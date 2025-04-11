@@ -52,6 +52,21 @@ class ControllerUser {
             next(error)
         }
     }
+
+    static async updateUserByPk(req, res, next) {
+        try {
+            const dataUser = await User.findByPk(req.params.userId)
+            if (!dataUser) throw { name: 'NotFound' }
+
+            await dataUser.update(req.body)
+            res.status(200).json({
+                message: `Success update ${dataUser.username} data`,
+                dataUser,
+            })
+        } catch (error) {
+            next(error)
+        }
+    }
 }
 
 module.exports = ControllerUser
