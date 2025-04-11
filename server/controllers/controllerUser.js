@@ -67,6 +67,20 @@ class ControllerUser {
             next(error)
         }
     }
+
+    static async removeUserByPk(req, res, next) {
+        try {
+            const dataUser = await User.findByPk(req.params.userId)
+            if (!dataUser) throw { name: 'NotFound' }
+
+            await dataUser.destroy()
+            res.status(200).json({
+                message: `Success delete ${dataUser.username}`,
+            })
+        } catch (error) {
+            next(error)
+        }
+    }
 }
 
 module.exports = ControllerUser
