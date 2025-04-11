@@ -12,5 +12,6 @@ router.use(authenticate)
 router.post('/add-user', authorizeAdminOnly, ControllerUser.addUser)
 router.get('/', ControllerUser.showAllUsers)
 router.put('/:userId', authorizeAdminOnly, ControllerUser.updateUserByPk)
+router.delete('/:userId', authorizeAdminOnly, ControllerUser.removeUserByPk)
 
 module.exports = router
