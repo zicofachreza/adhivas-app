@@ -1,0 +1,260 @@
+{
+	"info": {
+		"_postman_id": "11781c3e-a0e5-4328-974f-f6320ad559d0",
+		"name": "adhivas-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34568005"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"adminsteven\",\r\n    \"password\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbnN0ZXZlbiIsImlhdCI6MTc0NDMzOTcwMSwiZXhwIjoxNzQ0NDI2MTAxfQ.TDLDk_e0wr3yy49RGDFfrEhQHLxpSxzRu-GV1hvmIdE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"daffapr\",\r\n    \"password\": \"12345\",\r\n    \"nim\": \"1301181236\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/add-user",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"add-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbnN0ZXZlbiIsImlhdCI6MTc0NDMzOTcwMSwiZXhwIjoxNzQ0NDI2MTAxfQ.TDLDk_e0wr3yy49RGDFfrEhQHLxpSxzRu-GV1hvmIdE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbnN0ZXZlbiIsImlhdCI6MTc0NDMzOTcwMSwiZXhwIjoxNzQ0NDI2MTAxfQ.TDLDk_e0wr3yy49RGDFfrEhQHLxpSxzRu-GV1hvmIdE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fullName\": \"Zico Fachreza\",\r\n    \"birthDate\": \"20000105\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/4",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbnN0ZXZlbiIsImlhdCI6MTc0NDMzOTcwMSwiZXhwIjoxNzQ0NDI2MTAxfQ.TDLDk_e0wr3yy49RGDFfrEhQHLxpSxzRu-GV1hvmIdE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/5",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get data by name",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbnN0ZXZlbiIsImlhdCI6MTc0NDMzOTcwMSwiZXhwIjoxNzQ0NDI2MTAxfQ.TDLDk_e0wr3yy49RGDFfrEhQHLxpSxzRu-GV1hvmIdE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/name/Turner Mia",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"name",
+						"Turner Mia"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get data by nim",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbnN0ZXZlbiIsImlhdCI6MTc0NDMzOTcwMSwiZXhwIjoxNzQ0NDI2MTAxfQ.TDLDk_e0wr3yy49RGDFfrEhQHLxpSxzRu-GV1hvmIdE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/nim/9352078461",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"nim",
+						"9352078461"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get data by ymd",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbnN0ZXZlbiIsImlhdCI6MTc0NDMzOTcwMSwiZXhwIjoxNzQ0NDI2MTAxfQ.TDLDk_e0wr3yy49RGDFfrEhQHLxpSxzRu-GV1hvmIdE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/ymd/20230405",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ymd",
+						"20230405"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
